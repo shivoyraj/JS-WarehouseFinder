@@ -1,20 +1,28 @@
-h1{
+body {
+    font-family: Arial, sans-serif;
+    background-color: aliceblue;
+    overflow-x: hidden;
+}
+
+h1 {
     text-align: center;
 }
 
-button{
+button {
     display: block;
     margin: auto;
 }
 
 table {
     border-collapse: collapse;
-    width: auto;
+    width: 70%;
+    /* Adjust the width as per your preference */
     margin: 20px auto;
 }
 
-form{
+form {
     margin-top: 40px;
+    text-align: center;
 }
 
 th,
@@ -24,18 +32,54 @@ td {
     border: 1px solid #ddd;
 }
 
-th{
+th {
     background-color: #f2f2f2;
-    /* Background color for first column */
 }
 
-td{
+td {
     background-color: #f9f9f9;
-    /* Lighter color for rest of the cells */
 }
 
 div {
     text-align: center;
     margin-top: 20px;
     font-size: 18px;
+}
+
+.possibleCenter {
+    background-color: rgba(0, 145, 0, 0.667);
+    color: #ddd;
+}
+
+/* Custom button styles */
+button {
+    background-color: #91b392;
+    /* Green background color */
+    color: #ffffff;
+    /* White text color */
+    padding: 5px 5px;
+    /* Add some padding for a comfortable button size */
+    margin: 10px auto;
+    font-size: 16px;
+    /* Font size for the button text */
+    border: none;
+    /* Remove the default button border */
+    border-radius: 4px;
+    /* Rounded corners for a softer look */
+    cursor: pointer;
+    /* Change the cursor to a hand pointer on hover */
+    transition: background-color 0.3s ease;
+    /* Add a smooth transition effect */
+}
+
+/* Style for button on hover */
+button:hover {
+    background-color: #45a049;
+    /* Darker green when hovered */
+}
+
+/* Style for button when pressed */
+button:active {
+    background-color: #3e8e41;
+    /* Even darker green when pressed */
 }

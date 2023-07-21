@@ -34,7 +34,7 @@ document.getElementById('coordinateForm').addEventListener('submit', function (e
             }
         }
     });
-
+    console.log(points);
     // Call your function with the array of points
 
     GeometricMedianCalculator.findCenter(points);
@@ -99,7 +99,7 @@ class GeometricMedianCalculator {
                     grid[i - minY][j - minX] = res;
                 }
                 else
-                    grid[i - minY][j - minX] = '&#127981';
+                    grid[i - minY][j - minX] = '🏭';
                 if (res <= minimumRoundTripDistance) {
                     minimumRoundTripDistance = res;
                     center = new Point(j, i);
@@ -114,20 +114,42 @@ class GeometricMedianCalculator {
     }
 
     // Function to display the grid as an HTML table
+    // Function to display the grid as an HTML table
     static displayGridAsTable(grid, minX, minY, center, minimumRoundTripDistance) {
+
         const table = document.createElement('table');
         const tbody = document.createElement('tbody');
 
         // Table header
         const headerRow = document.createElement('tr');
-        headerRow.innerHTML = '<th>Y/X</th>' + Array.from({ length: grid[0].length }, (_, i) => `<th>${minX + i}</th>`).join('');
+        const headerCellCount = grid[0].length;
+        for (let i = 0; i < headerCellCount; i++) {
+            const th = document.createElement('th');
+            th.textContent = `${minX + i}`;
+            headerRow.appendChild(th);
+        }
+
+        headerRow.insertAdjacentHTML('afterbegin', '<th>Y/X</th>');
         tbody.appendChild(headerRow);
 
-        console.log(minY);
+        let possibleCenterList = [];
+
 
         for (let i = 0; i < grid.length; i++) {
             const row = document.createElement('tr');
-            row.innerHTML = `<th>${minY + i}</th>` + grid[i].map(cell => `<td>${cell}</td>`).join('');
+            const rowCellCount = grid[i].length;
+            for (let j = 0; j < rowCellCount; j++) {
+                const cell = document.createElement('td');
+                cell.textContent = grid[i][j];
+                if (grid[i][j] === minimumRoundTripDistance) {
+                    possibleCenterList.push(new Point(minX + j , minY + i))
+                    cell.classList.add('possibleCenter');
+                }
+                row.appendChild(cell);
+            }
+            const th = document.createElement('th');
+            th.textContent = `${minY + i}`;
+            row.insertAdjacentElement('afterbegin', th);
             tbody.appendChild(row);
         }
 
@@ -136,7 +158,10 @@ class GeometricMedianCalculator {
 
         // Display the information about the center and minimum round trip distance
         const infoDiv = document.createElement('div');
-        infoDiv.innerHTML = `Possible Center: (${center.x}, ${center.y})<br>Minimum Round Trip Distance: ${minimumRoundTripDistance}`;
+
+        infoDiv.innerHTML = `Possible Centers: [${Array.from(possibleCenterList).join(', ')}]<br>Minimum Round Trip Distance: ${minimumRoundTripDistance}`;
         document.body.appendChild(infoDiv);
     }
+
+
 }
