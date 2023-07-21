@@ -1,0 +1,41 @@
+h1{
+    text-align: center;
+}
+
+button{
+    display: block;
+    margin: auto;
+}
+
+table {
+    border-collapse: collapse;
+    width: auto;
+    margin: 20px auto;
+}
+
+form{
+    margin-top: 40px;
+}
+
+th,
+td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+th{
+    background-color: #f2f2f2;
+    /* Background color for first column */
+}
+
+td{
+    background-color: #f9f9f9;
+    /* Lighter color for rest of the cells */
+}
+
+div {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+}
