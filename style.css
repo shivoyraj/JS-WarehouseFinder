@@ -15,7 +15,7 @@ button {
 
 table {
     border-collapse: collapse;
-    width: 70%;
+    width: 20%;
     /* Adjust the width as per your preference */
     margin: 20px auto;
 }
@@ -27,7 +27,7 @@ form {
 
 th,
 td {
-    padding: 8px;
+    padding: 4px;
     text-align: center;
     border: 1px solid #ddd;
 }
