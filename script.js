@@ -161,7 +161,7 @@ class GeometricMedianCalculator {
         findingsInfoDiv.setAttribute('class', 'findingsInfoDiv');
 
         findingsInfoDiv.innerHTML = `Possible Centers for warehouse: [${Array.from(possibleCenterList).join(', ')}]<br>
-                             Minimum Round Trip Distance: ${minimumRoundTripDistance}`;
+                             <b>Minimum Round Trip Distance: ${minimumRoundTripDistance*2}<b>`;
         document.getElementById('findings').prepend(findingsInfoDiv);
         
         document.getElementById('findings').prepend(table);
