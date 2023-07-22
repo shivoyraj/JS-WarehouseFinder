@@ -101,13 +101,13 @@ button:active {
     text-align: center;
 }
 
-/* .findingsInfoDiv,
+.findingsInfoDiv,
 .givenInfoDiv {
     text-align: center;
-    font-size: 1rem;
+    font-size: 1vmax;
     max-height: 10vh;
     overflow-y: scroll;
-} */
+}
 
 /* Style the scrollbar */
 .findingsInfoDiv::-webkit-scrollbar,
