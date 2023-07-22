@@ -131,3 +131,14 @@ button:active {
     background-color: #555;
     /* Color of the scrollbar handle on hover */
 }
+
+@media(width < 1080px) {
+    .findingsInfoDiv,
+    .givenInfoDiv {
+        text-align: center;
+        font-size: 1vmin;
+        max-height: 10vh;
+        overflow-y: scroll;
+    }
+
+}
