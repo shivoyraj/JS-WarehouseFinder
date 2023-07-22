@@ -21,7 +21,6 @@ input {
 p {
     font-style: italic;
     font-size: 1rem;
-    font-size: 18px;
     color: rgb(54, 5, 215);
     text-align: center;
 }
@@ -105,7 +104,7 @@ button:active {
 .findingsInfoDiv,
 .givenInfoDiv {
     text-align: center;
-    font-size: 18px;
+    font-size: 1rem;
     max-height: 10vh;
     overflow-y: scroll;
 }
