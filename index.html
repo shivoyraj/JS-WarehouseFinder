@@ -7,25 +7,28 @@
 </head>
 
 <body>
-    <h1>Ware House Location Finder</h1>
+    <h1>WareHouse Location Finder</h1>
+    <p>(Assuming the factory is not act as an obstacle and will allow to pass vehicles)</p>
     <form id="coordinateForm">
         <div id="inputContainer">
+            <div><b>Please input the coordinates of factories</b></div><br>
             <div class="inputDiv">
-                <label for="x">X:</label>
+                <label for="x">x:</label>
                 <input type="number" name="x" required>
-                <label for="y">Y:</label>
+                <label for="y">y:</label>
                 <input type="number" name="y" required>
             </div>
             <div class="inputDiv">
-                <label for="x">X:</label>
+                <label for="x">x:</label>
                 <input type="number" name="x" required>
-                <label for="y">Y:</label>
+                <label for="y">y:</label>
                 <input type="number" name="y" required>
             </div>
         </div>
-        <button type="button" onclick="addInputFields()">Add Another Point</button>
-        <button type="submit">Submit</button>
+        <button id="addButton" type="button" onclick="addInputFields()">Add More Points</button>
+        <button id="submitButton" type="submit">Submit</button>
     </form>
+    <div id="findings"></div>
     <script src="script.js"></script>
 </body>
 

@@ -5,11 +5,11 @@ function addInputFields() {
     inputDiv.className = 'inputDiv'; // Add the 'inputDiv' class to the new div
 
     inputDiv.innerHTML = `
-        <label for="x">X:</label>
+        <label for="x">x:</label>
         <input type="number" name="x" required>
-        <label for="y">Y:</label>
+        <label for="y">y:</label>
         <input type="number" name="y" required>
-        <input type="button" value="X" onclick="removeInputField(this)">
+        <Button onclick="removeInputField(this)" style="display: inline-block;">X</Button>
     `;
 
     inputContainer.appendChild(inputDiv);
@@ -30,7 +30,7 @@ document.getElementById('coordinateForm').addEventListener('submit', function (e
             const x = inputElement.value;
             const y = formElements[index + 1].value;
             if (x !== '' && y !== '') {
-                points.push({ x: Number(x), y: Number(y) });
+                points.push(new Point(Number(x), Number(y)));
             }
         }
     });
@@ -108,14 +108,14 @@ class GeometricMedianCalculator {
         }
 
         // Call the function to display the grid as an HTML table
-        this.displayGridAsTable(grid, minX, minY, center, minimumRoundTripDistance);
+        this.displayGridAsTable(factoriesLocation, grid, minX, minY, center, minimumRoundTripDistance);
 
         return center;
     }
 
     // Function to display the grid as an HTML table
     // Function to display the grid as an HTML table
-    static displayGridAsTable(grid, minX, minY, center, minimumRoundTripDistance) {
+    static displayGridAsTable(factoriesLocation, grid, minX, minY, center, minimumRoundTripDistance) {
 
         const table = document.createElement('table');
         const tbody = document.createElement('tbody');
@@ -142,7 +142,7 @@ class GeometricMedianCalculator {
                 const cell = document.createElement('td');
                 cell.textContent = grid[i][j];
                 if (grid[i][j] === minimumRoundTripDistance) {
-                    possibleCenterList.push(new Point(minX + j , minY + i))
+                    possibleCenterList.push(new Point(minX + j, minY + i))
                     cell.classList.add('possibleCenter');
                 }
                 row.appendChild(cell);
@@ -154,13 +154,24 @@ class GeometricMedianCalculator {
         }
 
         table.appendChild(tbody);
-        document.body.appendChild(table);
 
         // Display the information about the center and minimum round trip distance
-        const infoDiv = document.createElement('div');
+        const findingsInfoDiv = document.createElement('div');
+        findingsInfoDiv.setAttribute('class', 'findingsInfoDiv');
 
-        infoDiv.innerHTML = `Possible Centers: [${Array.from(possibleCenterList).join(', ')}]<br>Minimum Round Trip Distance: ${minimumRoundTripDistance}`;
-        document.body.appendChild(infoDiv);
+        findingsInfoDiv.innerHTML = `Possible Centers for warehouse: [${Array.from(possibleCenterList).join(', ')}]<br>
+                             Minimum Round Trip Distance: ${minimumRoundTripDistance}`;
+        document.getElementById('findings').prepend(findingsInfoDiv);
+        
+        document.getElementById('findings').prepend(table);
+        
+        const givenInfoDiv = document.createElement('div');
+        givenInfoDiv.setAttribute('class', 'givenInfoDiv');
+        givenInfoDiv.innerHTML = `Given Locations of factories: [${Array.from(factoriesLocation).join(', ')}]`
+        document.getElementById('findings').prepend(givenInfoDiv);
+
+        const saparator = document.createElement('hr');
+        document.getElementById('findings').prepend(saparator);
     }
 
 

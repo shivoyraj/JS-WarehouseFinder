@@ -1,10 +1,28 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: aliceblue;
+    background-color: rgb(179, 196, 245);
     overflow-x: hidden;
 }
 
 h1 {
+    text-align: center;
+    color: #f9f9f9;
+    border-radius: 15px;
+    margin: 20px auto;
+    width: 50vw;
+    background-color: #6900d8;
+}
+
+input {
+    width: 50px;
+    border-radius: 7px;
+    background-color: aliceblue;
+}
+
+p {
+    font-style: italic;
+    font-size: 1rem;
+    font-size: 18px;
+    color: rgb(54, 5, 215);
     text-align: center;
 }
 
@@ -16,34 +34,38 @@ button {
 table {
     border-collapse: collapse;
     width: 20%;
-    /* Adjust the width as per your preference */
     margin: 20px auto;
 }
 
 form {
     margin-top: 40px;
-    text-align: center;
 }
 
 th,
 td {
     padding: 4px;
     text-align: center;
-    border: 1px solid #ddd;
+    border: 1px solid #dddddd;
 }
 
 th {
-    background-color: #f2f2f2;
+    color: #dedede;
+    background-color: #646efe;
 }
 
 td {
-    background-color: #f9f9f9;
+    background-color: #a3b1e7;
 }
 
-div {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 18px;
+#inputContainer,
+#coordinateForm {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.inputDiv {
+    float: none;
+    margin-bottom: 10px;
 }
 
 .possibleCenter {
@@ -51,35 +73,62 @@ div {
     color: #ddd;
 }
 
-/* Custom button styles */
 button {
-    background-color: #91b392;
-    /* Green background color */
-    color: #ffffff;
-    /* White text color */
-    padding: 5px 5px;
-    /* Add some padding for a comfortable button size */
-    margin: 10px auto;
-    font-size: 16px;
-    /* Font size for the button text */
-    border: none;
-    /* Remove the default button border */
-    border-radius: 4px;
-    /* Rounded corners for a softer look */
-    cursor: pointer;
-    /* Change the cursor to a hand pointer on hover */
-    transition: background-color 0.3s ease;
-    /* Add a smooth transition effect */
+    background-color: rgb(255, 86, 86);
 }
 
-/* Style for button on hover */
+#submitButton,
+#addButton {
+    background-color: #818af2;
+    color: #ffffff;
+    padding: 5px 5px;
+    margin: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
 button:hover {
     background-color: #45a049;
-    /* Darker green when hovered */
 }
 
-/* Style for button when pressed */
 button:active {
     background-color: #3e8e41;
-    /* Even darker green when pressed */
+}
+
+#findings {
+    text-align: center;
+}
+
+.findingsInfoDiv,
+.givenInfoDiv {
+    text-align: center;
+    font-size: 18px;
+    max-height: 10vh;
+    overflow-y: scroll;
+}
+
+/* Style the scrollbar */
+.findingsInfoDiv::-webkit-scrollbar,
+.givenInfoDiv::-webkit-scrollbar {
+    width: 12px;
+    /* Width of the scrollbar */
+}
+
+/* Handle */
+.findingsInfoDiv::-webkit-scrollbar-thumb,
+.givenInfoDiv::-webkit-scrollbar-thumb {
+    background-color: #888;
+    /* Color of the scrollbar handle */
+    border-radius: 6px;
+    /* Rounded corners of the scrollbar handle */
+}
+
+/* Handle on hover */
+.findingsInfoDiv::-webkit-scrollbar-thumb:hover,
+.givenInfoDiv::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+    /* Color of the scrollbar handle on hover */
 }
