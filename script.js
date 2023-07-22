@@ -76,16 +76,17 @@ class GeometricMedianCalculator {
     }
 
     static findCenter(factoriesLocation) {
+
         let minX = Number.MAX_VALUE;
         let minY = Number.MAX_VALUE;
         let maxX = Number.MIN_VALUE;
         let maxY = Number.MIN_VALUE;
 
         for (const location of factoriesLocation) {
-            minX = Math.min(minX, location.x);
-            minY = Math.min(minY, location.y);
-            maxX = Math.max(maxX, location.x);
-            maxY = Math.max(maxY, location.y);
+            minX = Math.min(minX, location.x-1);
+            minY = Math.min(minY, location.y-1);
+            maxX = Math.max(maxX, location.x+1);
+            maxY = Math.max(maxY, location.y+1);
         }
 
         const grid = new Array(maxY - minY + 1).fill(null).map(() => new Array(maxX - minX + 1).fill(0));
